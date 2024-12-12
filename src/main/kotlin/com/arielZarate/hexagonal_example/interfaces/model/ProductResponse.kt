@@ -1,4 +1,4 @@
-package com.arielZarate.hexagonal_example.interfaces.rest.model
+package com.arielZarate.hexagonal_example.interfaces.model
 
 data class ProductResponse(
     val id: Int,
