@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("api/products")
 class ProductController(
     private val getProductService: GetProductService,
     private val productMapper: ProductMapper
@@ -25,7 +25,7 @@ class ProductController(
     fun getAllProducts(): ResponseEntity<List<ProductResponse>> {
         return try {
             val products: List<Product> = getProductService.getAllProducts()
-            ResponseEntity.ok(products.map { productMapper.toResponse(it) })
+            ResponseEntity.ok(products.map { productMapper.fromEntitytoResponse(it) })
         } catch (e: Exception) {
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }
@@ -36,7 +36,7 @@ class ProductController(
         return try {
             val product: Product = getProductService.getProductById(id)
                 ?: return ResponseEntity(HttpStatus.NO_CONTENT)
-            ResponseEntity.ok(productMapper.toResponse(product))
+            ResponseEntity.ok(productMapper.fromEntitytoResponse(product))
         } catch (e: Exception) {
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }

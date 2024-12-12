@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 @Component
 class ProductMapper {
 
-    fun toResponse(product: Product): ProductResponse {
+    fun fromEntitytoResponse(product: Product): ProductResponse {
         return ProductResponse(
             id = product.id,
             title = product.title,
