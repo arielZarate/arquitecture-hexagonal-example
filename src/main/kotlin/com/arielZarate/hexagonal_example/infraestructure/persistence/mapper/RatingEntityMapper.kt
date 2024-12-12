@@ -2,7 +2,10 @@ package com.arielZarate.hexagonal_example.infraestructure.persistence.mapper
 
 import com.arielZarate.hexagonal_example.domain.model.Product
 import com.arielZarate.hexagonal_example.infraestructure.persistence.model.RatingEntity
+import org.springframework.stereotype.Component
 
+
+@Component
 class RatingEntityMapper {
 
 

@@ -2,7 +2,10 @@ package com.arielZarate.hexagonal_example.infraestructure.persistence.mapper
 
 import com.arielZarate.hexagonal_example.domain.model.Product
 import com.arielZarate.hexagonal_example.infraestructure.persistence.model.ProductEntity
+import org.springframework.stereotype.Component
 
+
+@Component
 class ProductEntityMapper(
     private val ratingEntityMapper: RatingEntityMapper
 ) {
@@ -28,13 +31,12 @@ class ProductEntityMapper(
     // Convierte de Product (modelo de dominio) a ProductEntity (entidad JPA)
     fun toEntity(product: Product): ProductEntity {
         return ProductEntity(
-            id = product.id,
+            //id = 0,// Si el id es null, lo asignamos como 0 (en este caso la BD lo generará)
             title = product.title,
             price = product.price,
             description = product.description,
             category = product.category,
             image = product.image,
-            //mape de ratingEntitymapper
            rating = ratingEntityMapper.toEntity(product.rating)
              //  product.rating.toEntity() /
         )
