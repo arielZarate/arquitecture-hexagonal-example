@@ -8,6 +8,7 @@ import com.arielZarate.hexagonal_example.infraestructure.persistence.mapper.Rati
 import com.arielZarate.hexagonal_example.infraestructure.persistence.model.ProductEntity
 import com.arielZarate.hexagonal_example.infraestructure.persistence.repositories.ProductRepository
 import org.springframework.stereotype.Component
+import java.util.*
 
 
 @Component
@@ -21,8 +22,8 @@ class ProductOutAdapter(
 
     //======debo mapear cada consulta======
     override fun findProductById(id: Int) :Product{
-        val productEntity:ProductEntity =productRepository.findById(id).orElse(null);
-        return productEntityMapper.toDomain(productEntity);
+        val productEntity: Optional<ProductEntity> =productRepository.findById(id);
+        return productEntityMapper.toDomain(productEntity.get());
     }
 
     override fun getAllProducts(): List<Product> {

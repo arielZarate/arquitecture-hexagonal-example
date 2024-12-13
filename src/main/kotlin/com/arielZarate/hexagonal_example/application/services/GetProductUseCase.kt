@@ -3,6 +3,7 @@ package com.arielZarate.hexagonal_example.application.services
 import com.arielZarate.hexagonal_example.domain.model.Product
 import com.arielZarate.hexagonal_example.domain.ports.`in`.GetProductService
 import com.arielZarate.hexagonal_example.domain.ports.out.ProductOut
+import com.arielZarate.hexagonal_example.interfaces.error.exception.CustomException
 
 
 //esto es un mock devuelve un objeto de prueba para probar el controller
@@ -27,8 +28,9 @@ class GetProductUseCase (
         return products
     }
   * */
-    override fun getProductById(id: Int): Product? {
-      return productOut.findProductById(id)
+    override fun getProductById(id: Int):Product?{
+        return productOut.findProductById(id)
+
     }
 
     override fun getAllProducts(): List<Product> {
