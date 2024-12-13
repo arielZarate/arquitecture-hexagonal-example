@@ -11,6 +11,7 @@ data class ProductEntity (
     val id: Int=0,
     val title: String,
     val price: Double,
+    @Column(length = 700)
     val description: String,
     val category: String,
     val image: String,
