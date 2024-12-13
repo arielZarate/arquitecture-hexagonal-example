@@ -7,7 +7,6 @@ import com.arielZarate.hexagonal_example.infraestructure.persistence.mapper.Prod
 import com.arielZarate.hexagonal_example.infraestructure.persistence.mapper.RatingEntityMapper
 import com.arielZarate.hexagonal_example.infraestructure.persistence.model.ProductEntity
 import com.arielZarate.hexagonal_example.infraestructure.persistence.repositories.ProductRepository
-import com.arielZarate.hexagonal_example.interfaces.mappers.ProductMapper
 import org.springframework.stereotype.Component
 
 

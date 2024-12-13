@@ -2,7 +2,7 @@ package com.arielZarate.hexagonal_example.domain.model
 
 
 data class Product(
-    val id: Int=0,//esto lo generarar de forma autiomatica al id
+    val id: Int?=null,//el id es opcional ya que lo genera la bd
     val title: String,
     val price: Double,
     val description: String,
